@@ -1,0 +1,23 @@
+:root{font-size:calc(16px * var(--reading-scale,1))}
+.font-controls{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.font-controls button{min-width:30px;height:29px;border:1px solid #c9cbc2;border-radius:3px;background:transparent;color:#435047;font:700 .66rem var(--sans);cursor:pointer}
+.font-controls button:hover:not(:disabled){background:#ebe9df;border-color:#9ba895}
+.font-controls button:disabled{opacity:.4;cursor:default}
+.font-controls span{min-width:34px;text-align:center;color:#68736a;font:500 .53rem var(--mono)}
+.inline-note-block{margin:20px 0 10px;padding:15px 17px;background:#e7e8df;border-left:2px solid #718869}
+.inline-note-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:10px;color:#66745f;font:500 .55rem var(--mono);letter-spacing:.09em}
+.notes-actions{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.notes-actions span{font:500 .52rem var(--mono);letter-spacing:0;color:#71816d}
+.notes-actions button{border:1px solid #c9cbc2;background:transparent;padding:6px 9px;font:600 .59rem var(--sans);color:#6b7068;cursor:pointer}
+.notes-actions button:hover{border-color:#b95a3b;color:#9f4f32}
+.note-field{display:block;width:100%;background:#faf9f4;border:1px solid #d9dad2;padding:12px 13px 11px}
+.note-field>span{display:block;font-size:.74rem;font-weight:700;color:#39463d}
+.note-field small{display:block;margin:4px 0 8px;color:#899087;font-size:.6rem}
+.note-field textarea{display:block;width:100%;min-height:100px;resize:vertical;border:0;border-top:1px solid #e3e3db;background:transparent;padding:9px 2px 2px;color:#39443c;font:400 .74rem/1.65 var(--sans);outline:none}
+.note-field textarea:focus{border-top-color:#889b7b}
+.note-field textarea::placeholder{color:#a2a79d}
+.exception-card .inline-note{margin:14px 0 14px;background:#eeede5}
+.doctrine-note{margin-top:19px}
+@media(max-width:760px){.topnav{display:none}.font-controls{margin-left:auto;margin-right:10px}}
+@media(max-width:600px){.inline-note-heading{align-items:flex-start;flex-direction:column}.notes-actions{width:100%;justify-content:space-between}.inline-note-block{padding:13px}}
+@media print{.font-controls,.notes-actions button{display:none}.note-field{break-inside:avoid}.note-field textarea{min-height:110px;border:1px solid #bbb;white-space:pre-wrap}.inline-note-block{background:white;border:1px solid #aaa}.exception-card .inline-note{background:white}}
