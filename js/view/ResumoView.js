@@ -44,9 +44,18 @@ window.ResumoView = (() => {
     const fields = [...document.querySelectorAll('[data-note]')];
     fields.forEach((field) => {
       field.value = initialNotes[field.dataset.note] || '';
-      field.addEventListener('input', () => onChange(field.dataset.note, field.value));
+      resizeNote(field);
+      field.addEventListener('input', () => {
+        resizeNote(field);
+        onChange(field.dataset.note, field.value);
+      });
     });
     document.querySelector('#clear-notes').addEventListener('click', onClear);
+  }
+
+  function resizeNote(field) {
+    field.style.height = 'auto';
+    field.style.height = `${field.scrollHeight}px`;
   }
 
   function showNotesStatus(saved) {
@@ -56,7 +65,10 @@ window.ResumoView = (() => {
   }
 
   function clearNotes(saved) {
-    document.querySelectorAll('[data-note]').forEach((field) => { field.value = ''; });
+    document.querySelectorAll('[data-note]').forEach((field) => {
+      field.value = '';
+      resizeNote(field);
+    });
     document.querySelector('#notes-status').textContent = saved
       ? 'Anotações limpas'
       : 'Não foi possível limpar as anotações';

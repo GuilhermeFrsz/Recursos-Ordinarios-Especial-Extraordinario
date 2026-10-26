@@ -13,11 +13,33 @@
 .note-field{display:block;width:100%;background:#faf9f4;border:1px solid #d9dad2;padding:12px 13px 11px}
 .note-field>span{display:block;font-size:.74rem;font-weight:700;color:#39463d}
 .note-field small{display:block;margin:4px 0 8px;color:#899087;font-size:.6rem}
-.note-field textarea{display:block;width:100%;min-height:100px;resize:vertical;border:0;border-top:1px solid #e3e3db;background:transparent;padding:9px 2px 2px;color:#39443c;font:400 .74rem/1.65 var(--sans);outline:none}
+.note-field textarea{display:block;width:100%;min-height:100px;overflow:hidden;resize:none;border:0;border-top:1px solid #e3e3db;background:transparent;padding:9px 2px 2px;color:#39443c;font:400 .74rem/1.65 var(--sans);outline:none}
 .note-field textarea:focus{border-top-color:#889b7b}
 .note-field textarea::placeholder{color:#a2a79d}
 .exception-card .inline-note{margin:14px 0 14px;background:#eeede5}
 .doctrine-note{margin-top:19px}
 @media(max-width:760px){.topnav{display:none}.font-controls{margin-left:auto;margin-right:10px}}
 @media(max-width:600px){.inline-note-heading{align-items:flex-start;flex-direction:column}.notes-actions{width:100%;justify-content:space-between}.inline-note-block{padding:13px}}
-@media print{.font-controls,.notes-actions button{display:none}.note-field{break-inside:avoid}.note-field textarea{min-height:110px;border:1px solid #bbb;white-space:pre-wrap}.inline-note-block{background:white;border:1px solid #aaa}.exception-card .inline-note{background:white}}
+@media print{
+  @page{size:auto;margin:14mm 13mm}
+  html,body{background:#fff!important;color:#222!important;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .topbar{position:static;height:auto;min-height:0;padding:0 0 8mm;background:#fff!important;border-bottom:1px solid #bbb;display:flex;justify-content:space-between}
+  .topnav,.font-controls,.theme-button,.print-button,.quiz-card,.notes-actions button{display:none!important}
+  .page-width{width:100%;max-width:none}
+  .hero{height:auto;min-height:0;padding:12mm 0;grid-template-columns:1fr .8fr;break-inside:avoid}
+  .hero h1{font-size:48pt}
+  .hero-card{box-shadow:none;transform:none;width:260px;height:220px}
+  .section-band,.definition,.compare,.extra-inner,.doctrine,.procedure-inner,.memory{break-inside:auto}
+  .section-inner,.extra-inner,.doctrine,.compare,.definition,.procedure-inner,.memory{padding-top:10mm;padding-bottom:10mm}
+  .routes,.exception-cards{gap:4mm}
+  .route,.exception-card,.warning-note,.relevance-note,.bibliography,.note-field{break-inside:avoid}
+  .route-item .route-detail{display:block}
+  .route-item{break-inside:avoid}
+  .table-wrap{overflow:visible}
+  table{min-width:0;font-size:9pt}
+  th,td{padding:7px 9px}
+  .note-field,.inline-note-block,.exception-card .inline-note{background:#fff!important;border:1px solid #aaa}
+  .note-field textarea{height:auto!important;min-height:25mm;overflow:visible;border:1px solid #bbb;white-space:pre-wrap;overflow-wrap:anywhere}
+  .source-line a,.bibliography a,.warning-note a,.procedure-cite a{color:#333}
+  .footer{color:#555}
+}
